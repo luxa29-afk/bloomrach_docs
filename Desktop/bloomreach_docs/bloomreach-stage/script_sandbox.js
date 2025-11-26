@@ -829,6 +829,51 @@ $(window).on('load', async function () {
     let $clonedBarMobile;
     let $clonedBarDesktop;
 
+    setTimeout(() => {
+
+     // 👉 SPECIAL CASE: SANDBOX HOME PAGE
+     if (window.location.pathname === '/page/home-page') {
+             // if owlbot is on remove owl search bars and store the original to use later in modal with original event listeners
+        
+                if (!window.location.href.includes('?owlbotTrial=true')) {
+                    $originalBarMobile = $(".rm-Header-Top .rm-Container .Dropdown.Dropdown_closed");
+                    $originalBarDesktop = $(".rm-Header-bottom .rm-Container .rm-SearchToggle");
+                    // console.log('owl test');
+                    // console.log($('.rm-OwlbotAI'));
+                    // console.log('owl founding');
+                    $clonedBarMobileSearch = $originalBarMobile.clone();
+                    $headerSearch = $('.search');
+                    // console.log($headerSearch);
+                    $originalBarMobile.remove();
+                    $headerSearch.append($clonedBarMobileSearch);
+    
+                    $clonedBarDesktopSearch = $originalBarDesktop.clone();
+                    $originalBarDesktop.remove();
+                    $headerSearch.append($clonedBarDesktopSearch);
+    
+                    $clonedBarMobile = $(".rm-Header-Top .rm-Container .Dropdown.Dropdown_closed");
+                    $clonedBarDesktop = $('.search .rm-SearchToggle');
+                    // console.log($('.search .rm-OwlbotAI').parent());
+                    // console.log('cloned');
+                    console.log($clonedBarDesktopSearch);
+                    console.log($clonedBarDesktop);
+    
+                    // Clone Algolia search bars to remove their original event listeners
+                } else {
+                    $originalBarMobile = $(".rm-Header-top .rm-Container .rm-SearchToggle");
+                    $originalBarDesktop = $(".rm-Header-bottom .rm-Container .rm-SearchToggle");
+                    // console.log('not owl');
+                    $originalBarMobile.replaceWith($originalBarMobile.clone());
+    
+                    $originalBarDesktop.replaceWith($originalBarDesktop.clone());
+    
+                    $clonedBarMobile = $(".rm-Header-top .rm-Container .rm-SearchToggle");
+                    $clonedBarDesktop = $(".rm-Header-bottom .rm-Container .rm-SearchToggle");
+                }
+   
+     } else {
+
+
     // if owlbot is on remove owl search bars and store the original to use later in modal with original event listeners
     if (window.location.href.includes('?owlbotTrial=true')) {
         $originalBarMobile = $(".rm-Header-Top .rm-Container .Dropdown.Dropdown_closed");
@@ -851,7 +896,7 @@ $(window).on('load', async function () {
     } else {
         $originalBarMobile = $(".rm-Header-top .rm-Container .rm-SearchToggle");
         $originalBarDesktop = $(".rm-Header-bottom .rm-Container .rm-SearchToggle");
-        console.log('not owl');
+        console.log('not owl testink');
         $originalBarMobile.replaceWith($originalBarMobile.clone());
 
         $originalBarDesktop.replaceWith($originalBarDesktop.clone());
@@ -859,6 +904,11 @@ $(window).on('load', async function () {
         $clonedBarMobile = $(".rm-Header-top .rm-Container .rm-SearchToggle");
         $clonedBarDesktop = $(".rm-Header-bottom .rm-Container .rm-SearchToggle");
     }
+        
+     }
+
+    
+
 
     if (debuggingMode) $clonedBarMobile.addClass('bg-warning');
 
@@ -1144,6 +1194,8 @@ $(window).on('load', async function () {
             }
         });
     }
+
+}, 500);
 
 
     // ➡️ Fetching and processing results ➡️
@@ -1434,19 +1486,6 @@ function renderSearchModal() {
             </div>
           </div>
           <div class="right-nav">
-             <div class="AI-mode">
-                <div class="AI-toggle">
-                  <span class="AI-mode-span">AI Mode</span>
-                  <input class="AI-mode-btn" type="checkbox" id="toggle-AI-mode">
-                  <label class="AI-mode-label" for="toggle-AI-mode"></label>
-                </div>
-                <div class="AI-tooltip" id="OwlbotTooltip">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M7.04168 4.87498H5.95834V3.79165H7.04168M7.04168 9.20831H5.95834V5.95831H7.04168M6.50001 1.08331C5.78868 1.08331 5.08432 1.22342 4.42714 1.49563C3.76996 1.76785 3.17283 2.16683 2.66985 2.66982C1.65403 3.68564 1.08334 5.06339 1.08334 6.49998C1.08334 7.93657 1.65403 9.31432 2.66985 10.3301C3.17283 10.8331 3.76996 11.2321 4.42714 11.5043C5.08432 11.7765 5.78868 11.9166 6.50001 11.9166C7.9366 11.9166 9.31435 11.346 10.3302 10.3301C11.346 9.31432 11.9167 7.93657 11.9167 6.49998C11.9167 5.78865 11.7766 5.08429 11.5044 4.42711C11.2321 3.76993 10.8332 3.1728 10.3302 2.66982C9.82719 2.16683 9.23006 1.76785 8.57288 1.49563C7.9157 1.22342 7.21134 1.08331 6.50001 1.08331Z" fill="#C7D6EE"/>
-                     </svg>
-                    <span id="tooltipText">AI Search is in Beta and may not always be 100% accurate. Help us make it better by voting</span>
-                </div>
-            </div>
             <details class="RefinementList-Col" open="">
               <summary class="RefinementList-Header" tabindex="-1">Filters</summary>
               <ol class="RefinementList">
