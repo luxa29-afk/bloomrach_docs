@@ -763,9 +763,14 @@ if (window.location.pathname === '/page/home-page') {
         let search = $('#enterprise #hub-subheader-parent .ng-scope').detach();
         $("#explore-docs .search").prepend(search);
 
-        $('.nav-item-dropdown').click(function () {
-            $(".dropdown-menu-link").toggleClass("dropdown-menu-link-show");
-            $(".dropdown-img").toggleClass("dropdown-img-show");
+        $('.nav-item-dropdown').click(function (e) {
+            e.stopPropagation(); 
+
+            $('.dropdown-menu-link-show').not($(this).find('.dropdown-menu-link')).removeClass('dropdown-menu-link-show');
+            $('.dropdown-img-show').not($(this).find('.dropdown-img')).removeClass('dropdown-img-show');
+        
+            $(this).find('.dropdown-menu-link').toggleClass('dropdown-menu-link-show');
+            $(this).find('.dropdown-img').toggleClass('dropdown-img-show');
         });
 
         const currYear = new Date().getFullYear();
