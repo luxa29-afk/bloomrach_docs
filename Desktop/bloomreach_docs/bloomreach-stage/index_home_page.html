@@ -47,7 +47,7 @@
                   <li class="dropdown-nav-item">
                     <a href="https://documentation.bloomreach.com/clarity/" class="dropdown-nav-link d-flex align-items-center">
                       <span class="dropdown-icon">
-                        <img src="https://files.readme.io/86f2117f3d000ce5757a79cb62c95c431430559e3e93bc99e3ad124a38893379-image_195.svg" alt="" />
+                        <img src="https://files.readme.io/15ee1e53b5f8d878194e09c033a690ccda1ae4ad278c37e7ba916ca9bd91a15d-clarity.svg" alt="" />
                       </span>
                       <span>Clarity</span>
                     </a>
@@ -56,7 +56,7 @@
                   <li class="dropdown-nav-item">
                     <a href="https://documentation.bloomreach.com/data-hub/" class="dropdown-nav-link d-flex align-items-center">
                       <span class="dropdown-icon">
-                        <img src="https://files.readme.io/9c2182532f9a19070ca979e1cba270d6e4fabea769deeeee33c2fe6d29a747a9-image_196.svg" alt="" />
+                        <img src="https://files.readme.io/d82785d851ed2302ce3f587de9de998b46a1cd98d52b9a284aef976bbf907a3c-datahub.svg" alt="" />
                       </span>
                       <span>Data hub</span>
                     </a>
@@ -89,7 +89,7 @@
               <!-- OTHER RESOURCES DROPDOWN -->
             <li class="nav-item nav-item-dropdown">
               <a class="nav-link d-flex">
-                <span>Other Resources</span>
+                <span>Other resources</span>
                 <img src="" class="dropdown-img icon-chevron" />
               </a>
               <div class="dropdown-menu-link">
@@ -141,19 +141,19 @@
                   </a>
                 </li>
                 <li class="dropdown-nav-item">
-                  <a href="https://documentation.bloomreach.com/engagement/docs/get-started-with-bloomreach-clarity" class="dropdown-nav-link">
-                    <img src="https://files.readme.io/86f2117f3d000ce5757a79cb62c95c431430559e3e93bc99e3ad124a38893379-image_195.svg" alt="" class="dropdown-item-icon" />
+                  <a href="https://documentation.bloomreach.com/clarity" class="dropdown-nav-link">
+                    <img src="https://files.readme.io/15ee1e53b5f8d878194e09c033a690ccda1ae4ad278c37e7ba916ca9bd91a15d-clarity.svg" alt="" class="dropdown-item-icon" />
                     <span>Clarity</span>
                   </a>
                 </li>
                 <li class="dropdown-nav-item">
-                  <a href="https://www.bloomreach.com/en/blog/bloomreach-data-hub" class="dropdown-nav-link">
-                    <img src="https://files.readme.io/9c2182532f9a19070ca979e1cba270d6e4fabea769deeeee33c2fe6d29a747a9-image_196.svg" alt="" class="dropdown-item-icon" />
+                  <a href="ocumentation.bloomreach.com/data-hub" class="dropdown-nav-link">
+                    <img src="https://files.readme.io/d82785d851ed2302ce3f587de9de998b46a1cd98d52b9a284aef976bbf907a3c-datahub.svg" alt="" class="dropdown-item-icon" />
                     <span>Data Hub</span>
                   </a>
                 </li>
                 <li class="dropdown-nav-item">
-                  <a href="https://documentation.bloomreach.com/content/docs/content-saas-vs-brxm" class="dropdown-nav-link">
+                  <a href="https://xmdocumentation.bloomreach.com/" class="dropdown-nav-link">
                     <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-content.svg" alt="" class="dropdown-item-icon"/>
                     <span>Content BRXM</span>
                     <span class="external-arrow">
@@ -162,7 +162,7 @@
                   </a>
                 </li>
                 <li class="dropdown-nav-item">
-                  <a href="https://documentation.bloomreach.com/content/docs/introduction-to-content-saas" class="dropdown-nav-link">
+                  <a href="https://documentation.bloomreach.com/content" class="dropdown-nav-link">
                     <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-content.svg" alt="" class="dropdown-item-icon" />
                     <span>Content SaaS</span>
                   </a>
@@ -2491,7 +2491,7 @@
     }
   
     #menu li a {
-      color: rgba(0, 0, 0, .5);
+      color: #1c1733;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -2509,7 +2509,7 @@
     }
 
     #menu li a .external-arrow img {
-      height: 15px;
+      height: 11px;
     }
   
     #menu .dropdown-nav-link .external-arrow {
@@ -2543,7 +2543,7 @@
       top: 15px;
     }
 
-    #menuToggle #menu .nav-item-dropdown .nav-link .icon-chevron {
+    /* #menuToggle #menu .nav-item-dropdown .nav-link .icon-chevron {
       transition: transform .2s;
       position: relative;
       height: 30px;
@@ -2551,16 +2551,32 @@
       opacity: 1;
       transform: rotate(0deg);
       margin-bottom: 0;
-   }
+   } */
 
-    #menuToggle #menu .nav-item-dropdown .nav-link .icon-chevron::after {
+    /* #menuToggle #menu .nav-item-dropdown .nav-link .icon-chevron::after {
         content: "\e9dc";
         vertical-align: super;
-    }
+    } */
   
     #menuToggle #menu .nav-item-dropdown .nav-link .dropdown-img-show {
       transform: rotate(180deg);
       transform-origin: unset;
+    }
+
+    #menuToggle #menu.projects .nav-item-dropdown {
+      border: 1px solid var(--color-border-default);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      height: auto;
+      padding-bottom: 20px;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      gap: 10px;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 16px
     }
   
     #menuToggle #menu .nav-item-dropdown .dropdown-menu-link ul {
@@ -2568,16 +2584,15 @@
       padding: 0 20px;
     }
   
+    #menuToggle #menu .nav-item-dropdown .dropdown-menu-link-show,
     #menuToggle #menu .nav-item-dropdown .dropdown-menu-link {
-      visibility: hidden;
-      height: 0px;
-      transition: height 0.25s ease-out;
-    }
-  
-    #menuToggle #menu .nav-item-dropdown .dropdown-menu-link-show {
       visibility: visible;
-      height: 132px;
       transition: height 0.25s ease-out;
+      opacity: 1
+    }
+
+    #menuToggle #menu .nav-item-dropdown .dropdown-menu-link ul li {
+      font-size: 1.5rem;
     }
 
     #menuToggle #menu.projects .nav-item-dropdown .dropdown-menu-link-show {
@@ -2586,10 +2601,6 @@
   
     #menuToggle .fa-bars:before {
       content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2219.092%22%20height%3D%2219.092%22%20viewBox%3D%220%200%2019.092%2019.092%22%3E%3Cg%20transform%3D%22translate(-1.667%201.138)%22%3E%3Cline%20x2%3D%2223%22%20transform%3D%22translate(3.081%200.276)%20rotate(45)%22%20fill%3D%22none%22%20stroke%3D%22%23002840%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%2F%3E%3Cline%20x2%3D%2223%22%20transform%3D%22translate(3.081%2016.54)%20rotate(-45)%22%20fill%3D%22none%22%20stroke%3D%22%23002840%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-    }
-  
-    @media (max-width: 991.98px) {
-  
     }
   
     @media (max-width: 768px) {
@@ -2634,7 +2645,7 @@
     .explore-docs-container {
       background-color: var(--color-bg-home-page);
       color: var(--nav-link-bg-color);
-      padding-top: 170px;
+      padding-top: 110px;
       padding-bottom: 85px;
       position: relative;
     }

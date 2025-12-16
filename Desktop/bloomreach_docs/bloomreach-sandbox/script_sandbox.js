@@ -56,9 +56,13 @@ $(window).on('pageLoad', () => {
 // Header improvements - START
 let isPageLoad = false; // variable for append child only once
 $(window).on('pageLoad', () => {
+
+    const urlPath = document.location.pathname.split('/');
+    $('#ssr-main .rm-Header .rm-Header-top .rm-Header-top-link[to*="' + urlPath[1] + '"]').addClass("top-active");
     
     $(function () {
-        var match = window.location.pathname.match(/\/[^\/]+$/);
+        var match = window.location.pathname.match(/^\/([^\/]+)/);
+        console.log(match);
         if (!match) return;
 
         var segment = match[0]; 
@@ -88,6 +92,12 @@ $(window).on('pageLoad', () => {
     const projectsContent = `
     <div class="dropdown-menu-link">
         <ul>
+             <li class="dropdown-nav-item">
+                <a href="https://documentation.bloomreach.com/sandbox/" class="dropdown-nav-link">
+                    <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-engagement.svg" alt="" class="dropdown-item-icon" />
+                    <span>Sandbox</span>
+                </a>
+            </li>
             <li class="dropdown-nav-item">
                 <a href="https://documentation.bloomreach.com/engagement/" class="dropdown-nav-link">
                     <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-engagement.svg" alt="" class="dropdown-item-icon" />
@@ -101,19 +111,19 @@ $(window).on('pageLoad', () => {
                 </a>
             </li>
             <li class="dropdown-nav-item">
-                <a href="https://documentation.bloomreach.com/engagement/docs/get-started-with-bloomreach-clarity" class="dropdown-nav-link">
+                <a href="https://documentation.bloomreach.com/clarity/" class="dropdown-nav-link">
                     <img src="https://files.readme.io/86f2117f3d000ce5757a79cb62c95c431430559e3e93bc99e3ad124a38893379-image_195.svg" alt="" class="dropdown-item-icon" />
                     <span>Clarity</span>
                 </a>
             </li>
             <li class="dropdown-nav-item">
-                <a href="https://www.bloomreach.com/en/blog/bloomreach-data-hub" class="dropdown-nav-link">
+                <a href="https://documentation.bloomreach.com/data-hub/" class="dropdown-nav-link">
                     <img src="https://files.readme.io/9c2182532f9a19070ca979e1cba270d6e4fabea769deeeee33c2fe6d29a747a9-image_196.svg" alt="" class="dropdown-item-icon" />
-                    <span>Data Hub</span>
+                    <span>Data hub</span>
                 </a>
             </li>
             <li class="dropdown-nav-item">
-                <a href="https://documentation.bloomreach.com/content/docs/content-saas-vs-brxm" class="dropdown-nav-link">
+                <a href="https://xmdocumentation.bloomreach.com/" class="dropdown-nav-link">
                     <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-content.svg" alt="" class="dropdown-item-icon"/>
                     <span>Content BRXM</span>
                     <span class="external-arrow">
@@ -122,7 +132,7 @@ $(window).on('pageLoad', () => {
                 </a>
             </li>
             <li class="dropdown-nav-item">
-                <a href="https://documentation.bloomreach.com/content/docs/introduction-to-content-saas" class="dropdown-nav-link">
+                <a href="https://documentation.bloomreach.com/content" class="dropdown-nav-link">
                     <img src="https://br-cms.bloomreach.com/site/binaries/content/gallery/newbloomreach/assets/br-experience-content.svg" alt="" class="dropdown-item-icon" />
                     <span>Content SaaS</span>
                 </a>
@@ -136,6 +146,8 @@ $(window).on('pageLoad', () => {
 
     if (!isPageLoad) {
         setTimeout(() => {
+           
+        
             // 6. link = Projects
             const projectsButton = $("#ssr-main .rm-Header .rm-Header-top .Header-leftADQdGVqx1wqU .rm-Header-top-link:nth-of-type(3)")
                 .removeAttr("href")
@@ -150,6 +162,10 @@ $(window).on('pageLoad', () => {
             const projectsButtonMobile = $("#ssr-main .rm-Header .rm-Header-top .Header-leftADQdGVqx1wqU .NavItem-item1gDDTqaXGhm1:nth-last-child(2)");
             const otherResourcesButtonMobile = $("#ssr-main .rm-Header .rm-Header-top .Header-leftADQdGVqx1wqU .NavItem-item1gDDTqaXGhm1:last-child");
             
+             // change mobile project button main heading
+             projectsButtonMobile.html('Projects');
+             projectsButtonMobile.attr('href', '');
+
             // Projects dropdown (desktop + mobile)
             projectsButton.append(projectsContent);
             projectsButton.prepend(img);
@@ -167,6 +183,11 @@ $(window).on('pageLoad', () => {
             const desktopButtons = projectsButton.add(otherResourcesButton);
 
             desktopButtons.off("click").on("click", function (e) {
+
+                if ($(e.target).closest('.dropdown-menu-link a').length) {
+                    return;
+                }
+
                 e.preventDefault();
                 e.stopPropagation();
             
@@ -1538,13 +1559,13 @@ function renderSearchModal() {
                   <span class="SearchTabs-Tab"><i class="icon icon-recipes"></i>Recipes</span>
                 </div>
                 <div aria-label="Reference" aria-selected="false" class="SearchTabs-Tab Tabs-listItem " role="tab" tabindex="-1">
-                  <span class="SearchTabs-Tab"><i class="icon icon-references"></i>API Reference</span>
+                  <span class="SearchTabs-Tab"><i class="icon icon-references"></i>API reference</span>
                 </div>
                 <div aria-label="Center" aria-selected="false" class="SearchTabs-Tab Tabs-listItem " role="tab" tabindex="-1">
-                  <span class="SearchTabs-Tab"><i class="icon icon-help-center"></i>Help Center</span>
+                  <span class="SearchTabs-Tab"><i class="icon icon-help-center"></i>Help center</span>
                 </div>
                 <div aria-label="Changelog" aria-selected="false" class="SearchTabs-Tab Tabs-listItem " role="tab" tabindex="-1">
-                  <span class="SearchTabs-Tab"><i class="icon icon-changelog"></i>What's New</span>
+                  <span class="SearchTabs-Tab"><i class="icon icon-changelog"></i>What's new</span>
                 </div>
                 <div aria-label="Pages" aria-selected="false" class="SearchTabs-Tab Tabs-listItem " role="tab" tabindex="-1">
                   <span class="SearchTabs-Tab"><i class="icon icon-custom-pages-2"></i>Pages</span>
@@ -1599,22 +1620,22 @@ function renderSearchModal() {
                 </li>
                 <li class="RefinementList-Item1">
                   <label class="Toggle Toggle_checkbox RefinementList-Toggle">
-                    <input class="Toggle-input" label="Data hub" type="checkbox">
+                    <input class="Toggle-input" label="Data_hub" type="checkbox">
                       <div class="Toggle-display">
                         <i class="Toggle-display-icon icon-check-heavy"></i>
                         <i class="Toggle-display-icon icon-minus-heavy"></i>
                       </div>
-                    <span class="Toggle-label" title="Data hub">Data hub</span>
+                    <span class="Toggle-label" title="Data_hub">Data hub</span>
                   </label>
                 </li>
                 <li class="RefinementList-Item1">
                   <label class="Toggle Toggle_checkbox RefinementList-Toggle">
-                    <input class="Toggle-input" label="Content Saas" type="checkbox">
+                    <input class="Toggle-input" label="Clarity" type="checkbox">
                       <div class="Toggle-display">
                         <i class="Toggle-display-icon icon-check-heavy"></i>
                         <i class="Toggle-display-icon icon-minus-heavy"></i>
                       </div>
-                    <span class="Toggle-label" title="Content Saas">Content Saas</span>
+                    <span class="Toggle-label" title="Clarity">Clarity</span>
                   </label>
                 </li>
               </ol>

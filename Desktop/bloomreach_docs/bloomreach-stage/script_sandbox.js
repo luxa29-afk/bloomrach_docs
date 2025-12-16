@@ -1524,6 +1524,26 @@ function renderSearchModal() {
                     <span class="Toggle-label" title="Engagement">Engagement</span>
                   </label>
                 </li>
+                 <li class="RefinementList-Item1">
+                  <label class="Toggle Toggle_checkbox RefinementList-Toggle">
+                    <input class="Toggle-input" label="Data hub" type="checkbox">
+                      <div class="Toggle-display">
+                        <i class="Toggle-display-icon icon-check-heavy"></i>
+                        <i class="Toggle-display-icon icon-minus-heavy"></i>
+                      </div>
+                    <span class="Toggle-label" title="Data hub">Data hub</span>
+                  </label>
+                </li>
+                <li class="RefinementList-Item1">
+                  <label class="Toggle Toggle_checkbox RefinementList-Toggle">
+                    <input class="Toggle-input" label="Clarity" type="checkbox">
+                      <div class="Toggle-display">
+                        <i class="Toggle-display-icon icon-check-heavy"></i>
+                        <i class="Toggle-display-icon icon-minus-heavy"></i>
+                      </div>
+                    <span class="Toggle-label" title="Clarity">Clarity</span>
+                  </label>
+                </li>
               </ol>
             </details>
              <div class="CustomSearch-Discovery">
